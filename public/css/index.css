@@ -1,0 +1,933 @@
+:root {
+    /* Colores */
+    --color-fondo: #1C1C1C;
+    --color-header-footer: #2f2e2e;
+    --color-rojo: #D40000;
+    --color-dorado: #FDE100;
+    --color-texto: #FFFFFF;
+    --color-hover-dorado: #FDE100;
+    --color-shadow: rgba(128, 128, 128, 0.4);
+
+    /* Tipografías */
+    --fuente-principal: 'Orbitron', sans-serif;
+
+    /* Tamaños de Fuente */
+    --fuente-titulo-principal: 3rem;
+    --fuente-titulo-h2: 2.5rem;
+    --fuente-hashtag: 2.5rem;
+    --fuente-lead: 1.5rem;
+    --fuente-menu: 1.2rem;
+    --fuente-footer: 1.2rem;
+    --fuente-rsvp: 1.5rem;
+    --fuente-rsvp-lg: 1.5rem;
+
+    /* Sombras */
+    --sombra-texto: 2px 2px 5px var(--color-shadow);
+
+    /* Botón */
+    --border-radius-btn: 10px;
+    --padding-btn: 0.75rem 2rem;
+    --box-shadow-btn: 0 4px 6px rgba(0, 0, 0, 0.1);
+    /* Sombra sutil */
+    --box-shadow-hover: 0 6px 12px rgba(0, 0, 0, 0.2);
+    --transition-btn: all 0.3s ease;
+    /* Transición suave */
+    --letter-spacing-btn: 1px;
+
+    /* Transiciones */
+    --transicion-general: 0.3s ease-in-out;
+    --transicion-hover: 0.2s ease-in-out;
+}
+
+/* Reset y Global */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    background-color: var(--color-fondo);
+    background-image: repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px,
+            transparent 5px),
+        repeating-linear-gradient(-45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 1px,
+            transparent 1px,
+            transparent 5px);
+    color: var(--color-texto);
+    margin: 0;
+    padding: 0;
+    font-family: var(--fuente-principal);
+}
+
+/* Estilo Base para todos los <h2> */
+h2 {
+    font-family: var(--fuente-principal);
+    font-size: var(--fuente-titulo-h2);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    color: var(--color-rojo);
+    margin-bottom: 1.5rem;
+    text-shadow: var(--sombra-texto);
+    letter-spacing: 2px;
+    transition: all var(--transicion-general);
+}
+
+/* Estilos para el número */
+.numero-hover {
+    color: var(--color-texto);
+    font-size: 3rem;
+    text-decoration: none;
+    font-weight: 900;
+    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
+    transition: transform var(--transicion-hover);
+}
+
+.numero-hover:hover {
+    color: var(--color-hover-dorado);
+}
+
+/* Estilos para el Navbar */
+.navbar {
+    background-color: var(--color-header-footer);
+    background-image: repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 0.5px,
+            transparent 0.5px,
+            transparent 3px),
+        repeating-linear-gradient(-45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 0.5px,
+            transparent 0.5px,
+            transparent 3px);
+    padding: 1rem 2rem;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+}
+
+/* Línea de separación en el header */
+.navbar::after {
+    content: '';
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, var(--color-rojo), var(--color-dorado));
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+/* Estilos para los enlaces del menú */
+.navbar-nav .nav-link {
+    color: var(--color-texto);
+    font-weight: bold;
+    font-size: var(--fuente-menu);
+    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
+    transition: all var(--transicion-general);
+    position: relative;
+    text-align: center;
+    /* Asegura que el texto esté centrado */
+}
+
+.navbar-nav .nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-dorado);
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.navbar-nav .nav-link:hover {
+    color: var(--color-dorado);
+}
+
+/* Estilo del botón de hamburguesa */
+.navbar-toggler {
+    border-color: var(--color-texto);
+    background-color: transparent;
+    outline: none;
+}
+
+/* Estilo del icono del botón de hamburguesa */
+.navbar-toggler-icon {
+    background-image: none;
+    color: var(--color-texto);
+    font-size: 1.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.navbar-toggler-icon::before {
+    content: "\f0c9";
+    font-family: "Font Awesome 6 Free";
+    font-weight: 900;
+}
+
+/* Cambiar a "X" cuando el menú está desplegado */
+.navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+    content: "\f00d";
+}
+
+/* Efecto hover para el botón de hamburguesa */
+.navbar-toggler:hover {
+    color: var(--color-dorado);
+    /* Cambiar el color del icono en hover */
+}
+
+/* Cambiar el color del icono en hover */
+.navbar-toggler:hover .navbar-toggler-icon::before {
+    color: var(--color-dorado);
+}
+
+/* Sección Bienvenida */
+#bienvenida {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.titulo-principal {
+    color: var(--color-rojo);
+    font-size: var(--fuente-titulo-principal);
+    font-weight: bold;
+    text-transform: uppercase;
+    text-shadow: 2px 2px 5px rgba(128, 128, 128, 0.4);
+}
+
+.hashtag {
+    color: var(--color-dorado);
+    font-size: var(--fuente-hashtag);
+    margin-bottom: 1.5rem;
+    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
+}
+
+/* Contador de tiempo */
+#countdown {
+    margin-bottom: 2rem;
+}
+
+#countdown h3 {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+#timer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: nowrap;
+}
+
+#timer div {
+    background-color: #4a4949;
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.7);
+    position: relative;
+    min-width: 80px;
+    text-align: center;
+}
+
+/* Números del Countdown */
+#timer span {
+    font-size: 3rem;
+    color: var(--color-dorado);
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-shadow: 0 0 5px var(--color-rojo), 0 0 10px var(--color-dorado);
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+#timer div::after {
+    content: attr(data-label);
+    font-size: 1rem;
+    color: var(--color-texto);
+}
+
+/* Estilo para el mensaje de bienvenida */
+.lead {
+    font-size: var(--fuente-lead);
+    color: var(--color-texto);
+    margin-top: 1.5rem;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Sección Detalles */
+#detalles {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.titulo-subseccion {
+    color: var(--color-dorado);
+    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
+}
+
+.map-responsive {
+    position: relative;
+    width: 100%; /* Mantén el 100% para que se ajuste al ancho del contenedor */
+    max-width: 400px; /* Define un ancho máximo para hacer el mapa más pequeño */
+    aspect-ratio: 4 / 3; /* Cambia la relación de aspecto para que el mapa sea más alto y menos ancho */
+    border: 3px solid var(--color-dorado);
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+    margin: 0 auto; /* Centra el mapa si deseas */
+}
+
+.map-responsive iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    border-radius: 10px;
+    box-shadow: inherit;
+    transition: box-shadow 0.3s ease-in-out;
+}
+
+/* Carrusel */
+.carousel {
+    position: relative;
+    width: 100%;
+    border: 3px solid var(--color-dorado);
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s ease-in-out;
+    max-height: 600px;
+}
+
+.carousel-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 10px;
+    transition: transform 0.3s ease;
+}
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    filter: invert(100%);
+    width: 3rem;
+    height: 3rem;
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+    background-color: var(--color-dorado);
+    transform: scale(1.2);
+    filter: none;
+}
+
+.carousel-control-prev-icon {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Sección RSVP */
+#rsvp {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.mensaje-rsvp {
+    color: var(--color-texto);
+    font-size: 1.2rem;
+}
+
+/* Estilo del botón "Confirmar Asistencia" sin estilos de focus */
+.confirmar-asistencia {
+    background-color: var(--color-dorado);
+    color: #1C1C1C;
+    font-weight: bold;
+    padding: var(--padding-btn);
+    font-size: var(--fuente-rsvp-lg);
+    text-transform: uppercase;
+    border: none;
+    border-radius: var(--border-radius-btn);
+    box-shadow: var(--box-shadow-btn);
+    transition: var(--transition-btn);
+    display: inline-block;
+    cursor: pointer;
+    text-decoration: none;
+    letter-spacing: var(--letter-spacing-btn);
+}
+
+.confirmar-asistencia:hover {
+    background-color: var(--color-rojo);
+    color: var(--color-texto);
+    box-shadow: var(--box-shadow-hover);
+    outline: none;
+}
+
+.confirmar-asistencia:active {
+    transform: translateY(0);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    background-color: var(--color-dorado);
+    color: #1C1C1C;
+}
+
+/* Sección FAQ */
+#faq {
+    padding: 5rem 0;
+}
+
+.faq-button.collapsed {
+    color: var(--color-dorado);
+    background-color: #4a4949;
+}
+
+.faq-button:hover {
+    background-color: var(--color-dorado);
+    color: #000000;
+}
+
+.faq-button:focus,
+.faq-button[aria-expanded="true"] {
+    background-color: var(--color-rojo);
+    color: var(--color-texto);
+}
+
+.faq-body {
+    background-color: var(--color-fondo);
+    color: var(--color-texto);
+    text-align: center;
+}
+
+.faq-link {
+    color: var(--color-dorado);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.faq-link:hover {
+    color: var(--color-rojo);
+}
+
+/* Separadores */
+.separator-footer {
+    height: 3px;
+    background: linear-gradient(to right, var(--color-rojo), var(--color-dorado));
+    margin: 0;
+    width: 100%;
+}
+
+/* Footer */
+.footer {
+    width: 100%;
+    background-color: var(--color-header-footer);
+    background-image: repeating-linear-gradient(45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 0.5px,
+            transparent 0.5px,
+            transparent 3px),
+        repeating-linear-gradient(-45deg,
+            rgba(255, 255, 255, 0.05) 0px,
+            rgba(255, 255, 255, 0.05) 0.5px,
+            transparent 0.5px,
+            transparent 3px);
+    padding: 1.5rem 2rem;
+    box-shadow: 0px -4px 8px rgba(0, 0, 0, 0.2);
+    position: relative;
+    margin-top: auto;
+    text-align: center;
+}
+
+.footer a {
+    color: var(--color-texto);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: var(--fuente-footer);
+    padding: 0.3rem 0.8rem;
+    border: 2px solid transparent;
+    transition: all var(--transicion-general);
+    position: relative;
+    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
+}
+
+/* Evitar aplicar estilos de posición a los íconos */
+.footer a:not(.logos a) {
+    position: relative;
+}
+
+/* Subrayado dorado con sombras y transiciones */
+.footer a:not(.logos a)::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    background-color: var(--color-dorado);
+    left: 50%;
+    bottom: -5px;
+    transition: width 0.3s ease, left 0.3s ease;
+}
+
+.footer a:not(.logos a):hover::after {
+    width: 100%;
+    left: 0;
+}
+
+.footer a:not(.logos a):hover {
+    color: var(--color-dorado);
+    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
+}
+
+/* Sombra para el Texto del Footer */
+.footer p {
+    color: var(--color-texto);
+    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+/* Estilo de los íconos del footer */
+.footer .logos i {
+    color: var(--color-texto);
+    transition: color var(--transicion-general), text-shadow var(--transicion-general);
+    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
+}
+
+.footer .logos i:hover {
+    color: var(--color-dorado);
+    text-shadow: 2px 2px 5px rgba(255, 0, 0, 0.6);
+}
+
+/* Estilo del nombre Héctor Martil en el footer */
+.hector-martil {
+    color: var(--color-rojo);
+    font-weight: bold;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+}
+
+/* Estilos para dispositivos móviles (pantallas pequeñas) */
+@media (max-width: 768px) {
+    .navbar-nav .nav-link {
+        padding: 1rem 0;
+        width: 100%;
+    }
+}
+
+/* Estilos para pantallas grandes (768px en adelante) */
+@media (min-width: 769px) {
+    .navbar-nav {
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .navbar-nav .nav-item {
+        margin: 0 1rem;
+    }
+
+    .navbar-nav .nav-link {
+        padding: 0.5rem 1rem;
+    }
+}
+
+/* Responsividad */
+@media (max-width: 768px) {
+
+    .container,
+    #bienvenida,
+    #detalles,
+    #rsvp,
+    #faq,
+    .footer {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    #bienvenida {
+        padding: 3rem 1.5rem;
+    }
+
+    .titulo-principal {
+        font-size: 2.5rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hashtag {
+        font-size: 2rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .lead {
+        font-size: 1.2rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #timer {
+        gap: 1rem; 
+    }
+
+    #timer div {
+        padding: 0.5rem 1rem; 
+        min-width: 60px; 
+    }
+
+    #timer span {
+        font-size: 2.5rem; 
+    }
+
+    #timer div::after {
+        font-size: 0.875rem; 
+    }
+
+    #detalles h2 {
+        font-size: 2rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #detalles h3 {
+        font-size: 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #detalles p {
+        font-size: 1.2rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .carousel {
+        max-height: 500px;
+        padding: 0;
+        margin: 0;
+        border-radius: 10px;
+    }
+
+    .carousel-item img {
+        height: 100%;
+        display: block;
+        border-radius: 10px;
+        margin: 0;
+        padding: 0;
+    }
+
+    #rsvp h2 {
+        font-size: 2rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .mensaje-rsvp {
+        font-size: 1.5rem;
+        padding-left: 0.75rem;
+        padding-right: 0.75rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .confirmar-asistencia {
+        font-size: 1.5rem;
+        padding: 0.75rem 1.25rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #faq h2 {
+        font-size: 2rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .map-responsive {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    .footer a {
+        font-size: 1.2rem;
+        padding: 0.3rem 0.5rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .footer p {
+        font-size: 1rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .footer .logos i {
+        font-size: 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+@media (max-width: 480px) {
+
+    .container,
+    .map-responsive,
+    #detalles,
+    #rsvp,
+    #faq,
+    .footer {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    .titulo-principal {
+        font-size: 2rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .hashtag {
+        font-size: 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .lead {
+        font-size: 0.9rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #timer {
+        gap: 0.8rem;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    #timer div {
+        padding: 0.6rem 0.8rem;
+        min-width: 60px;
+    }
+
+    #timer span {
+        font-size: 1.5rem;
+    }
+
+    #timer div::after {
+        font-size: 0.7rem;
+    }
+
+    #countdown h3 {
+        font-size: 1.2rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .map-responsive {
+        aspect-ratio: 4 / 3;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    #detalles h2 {
+        font-size: 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #detalles h3 {
+        font-size: 1.1rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #detalles p {
+        font-size: 0.9rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .carousel {
+        max-height: 400px;
+        padding: 0;
+        margin: 0;
+        border-radius: 10px;
+    }
+
+    .carousel-item img {
+        height: 100%;
+        display: block;
+        border-radius: 10px;
+        margin: 0;
+        padding: 0;
+    }
+
+    #rsvp h2 {
+        font-size: 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .mensaje-rsvp {
+        font-size: 1.2rem;
+        padding-left: 0.5rem;
+        padding-right: 0.5rem;
+    }
+
+    .confirmar-asistencia {
+        padding: 0.5rem 1rem;
+        font-size: 1.1rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    #faq h2 {
+        font-size: 1.5rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .faq-button {
+        padding: 0.4rem;
+        font-size: 0.8rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .faq-body {
+        padding: 0.8rem;
+        font-size: 0.7rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .footer a {
+        font-size: 1rem;
+        padding: 0.2rem 0.3rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .footer p {
+        font-size: 0.9rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+
+    .footer .logos i {
+        font-size: 1.2rem;
+        margin-left: 0;
+        margin-right: 0;
+    }
+}
+
+/* Estilos para iPad Pro (1024px en adelante) */
+@media (min-width: 769px) and (max-width: 1024px) {
+
+    .container,
+    #bienvenida,
+    #detalles,
+    #rsvp,
+    #faq,
+    .footer {
+        padding-left: 2rem;
+        padding-right: 2rem;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        max-width: 100%;
+        /* Cambia el max-width para adaptarse mejor al iPad Pro */
+    }
+
+    .titulo-principal {
+        font-size: 3rem;
+        /* Aumenta el tamaño de la fuente para pantallas más grandes */
+    }
+
+    .hashtag {
+        font-size: 2.5rem;
+    }
+
+    .lead {
+        font-size: 1.5rem;
+    }
+
+    #detalles h2 {
+        font-size: 2.5rem;
+    }
+
+    #detalles h3 {
+        font-size: 2rem;
+    }
+
+    #detalles p {
+        font-size: 1.5rem;
+    }
+
+    #rsvp h2 {
+        font-size: 2.5rem;
+    }
+
+    .mensaje-rsvp {
+        font-size: 1.8rem;
+    }
+
+    .confirmar-asistencia {
+        font-size: 1.8rem;
+    }
+
+    #faq h2 {
+        font-size: 2.5rem;
+    }
+
+    .map-responsive {
+        padding-left: 1rem;
+        padding-right: 1rem;
+        margin-left: auto;
+        margin-right: auto;
+        box-sizing: border-box;
+        max-width: 100%;
+    }
+
+    .footer a {
+        font-size: 1.5rem;
+    }
+
+    .footer p {
+        font-size: 1.2rem;
+    }
+
+    .footer .logos i {
+        font-size: 2rem;
+    }
+}

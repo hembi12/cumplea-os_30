@@ -1,0 +1,20 @@
+BEGIN:VCALENDAR
+VERSION:2.0
+PRODID:-//tudominio.com//Evento 30 Cumpleaños//ES
+BEGIN:VEVENT
+UID:hectormartil30-20241208@tudominio.com
+DTSTAMP:20230919T000000Z
+DTSTART;TZID=America/Mexico_City:20241208T170000
+DTEND;TZID=America/Mexico_City:20241208T230000
+SUMMARY:Celebración 30º Cumpleaños de Héctor Martil
+LOCATION:Salón de eventos Gamer, Av Observatorio 457, Hidalgo, Álvaro Obregón, 01120 Ciudad de México, CDMX
+DESCRIPTION:Acompáñanos a celebrar el cumpleaños número 30 de Héctor Martil.
+URL:https://rsvp-cumple.web.app/
+CONTACT:tel:+525549221534;mailto:hectormartilb@gmail.com
+BEGIN:VALARM
+ACTION:DISPLAY
+DESCRIPTION:Recordatorio - Celebración 30º Cumpleaños de Héctor Martil
+TRIGGER:-P1D
+END:VALARM
+END:VEVENT
+END:VCALENDAR

@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Metadatos esenciales -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmar Asistencia - Cumpleaños 30</title>
+    <!-- Vinculación de Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Vinculación de Bootstrap -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Vinculación de Font Awesome para los íconos -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Vinculación del archivo CSS personalizado -->
+    <link rel="stylesheet" href="/css/rsvp.css">
+    <!-- Favicon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/favicon_io/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon_io/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/favicon_io/favicon-16x16.png">
+    <link rel="manifest" href="/site.webmanifest">
+    <!-- Meta Descripción para SEO -->
+    <meta name="description"
+        content="Confirma tu asistencia al cumpleaños número 30 de Héctor Martil. ¡Esperamos verte pronto!">
+    <!-- Meta Open Graph para Redes Sociales -->
+    <meta property="og:title" content="Confirmar Asistencia - Cumpleaños 30">
+    <meta property="og:description" content="Confirma tu asistencia al evento especial">
+    <meta property="og:image" content="/assets/images/dos_simuladores.jpg">
+    <meta property="og:url" content="https://tudominio.com/rsvp.html">
+    <!-- Vinculación del script de funcionalidad como módulo -->
+    <script type="module" src="/scripts/rsvp.js"></script>
+</head>
+
+<body>
+    <!-- Encabezado -->
+    <header class="header d-flex justify-content-between align-items-center py-3 px-5">
+        <!-- Lado Izquierdo: Número 30 que enlaza a la página principal -->
+        <div class="numero">
+            <a href="index.html" class="numero-hover">30</a>
+        </div>
+        <!-- Lado Derecho: Título "RSVP" con estilo del menú -->
+        <nav class="menu">
+            <ul class="d-flex list-unstyled mb-0">
+                <li class="mx-4"><a href="#" class="active">RSVP</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Línea de separación después del header -->
+    <div class="separator-header"></div>
+
+    <!-- Contenido Principal -->
+    <main class="container py-5 text-white">
+        <!-- Sección de Introducción -->
+        <section class="text-center mb-5">
+            <h1 class="titulo-principal">Confirma tu Asistencia</h1>
+            <p class="lead mt-4">
+                Estamos encantados de que puedas acompañarnos en nuestro día especial.
+                Por favor, completa el siguiente formulario para confirmar tu asistencia.
+            </p>
+        </section>
+
+        <!-- Formulario de Confirmación -->
+        <section id="seccionFormulario">
+            <div id="formularioHeader">
+                <h2>Formulario</h2>
+                <form action="#" method="post" class="formulario-confirmacion needs-validation" novalidate>
+                    <!-- Nombre Completo -->
+                    <div class="mb-4">
+                        <label for="nombreCompleto" class="form-label">Nombre Completo *</label>
+                        <input type="text" class="form-control" id="nombreCompleto" name="nombreCompleto" required>
+                        <div class="invalid-feedback">
+                            Por favor, ingresa tu nombre completo.
+                        </div>
+                    </div>
+                    <!-- Número de Teléfono -->
+                    <div class="mb-4">
+                        <label for="telefono" class="form-label">Número de Teléfono *</label>
+                        <input type="tel" class="form-control" id="telefono" name="telefono" required>
+                        <div class="invalid-feedback">
+                            Por favor, ingresa tu número de teléfono.
+                        </div>
+                    </div>
+                    <!-- Correo Electrónico (Opcional) -->
+                    <div class="mb-4">
+                        <label for="correoElectronico" class="form-label">Correo Electrónico (Opcional)</label>
+                        <input type="email" class="form-control" id="correoElectronico" name="correoElectronico">
+                    </div>
+                    <!-- Pregunta de Asistencia -->
+                    <div class="mb-4">
+                        <label class="form-label">¿Asistirás al cumpleaños? *</label>
+                        <div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="asistencia" id="asistirSi" value="si"
+                                    required>
+                                <label class="form-check-label" for="asistirSi">Sí</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="asistencia" id="asistirNo" value="no"
+                                    required>
+                                <label class="form-check-label" for="asistirNo">No</label>
+                            </div>
+                        </div>
+                        <div class="invalid-feedback">
+                            Por favor, selecciona una opción.
+                        </div>
+                    </div>
+                    <!-- Campos que se mostrarán u ocultarán -->
+                    <div id="camposAsistire" style="display: none;">
+                        <!-- Número de Acompañantes (Opcional) -->
+                        <div class="mb-4">
+                            <label for="numeroInvitados" class="form-label">Número de Acompañantes (Opcional)</label>
+                            <input type="number" class="form-control" id="numeroInvitados" name="numeroInvitados"
+                                min="0" max="10">
+                        </div>
+                    </div>
+                    <!-- Mensaje Adicional (Opcional) -->
+                    <div class="mb-4">
+                        <label for="mensajeAdicional" class="form-label">Mensaje Adicional (Opcional)</label>
+                        <textarea class="form-control" id="mensajeAdicional" name="mensajeAdicional"
+                            rows="3"></textarea>
+                    </div>
+                    <!-- Botón de Envío -->
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-lg enviar-confirmacion">Enviar Confirmación</button>
+                    </div>
+                </form>
+        </section>
+
+        <!-- Mensaje de Confirmación -->
+        <section id="mensajeConfirmacion" style="display: none;">
+            <div class="text-center">
+                <h2 class="titulo-confirmacion">¡Gracias por confirmar tu asistencia!</h2>
+                <p class="lead mt-4">
+                    Si lo deseas, puedes agregar el evento a tu calendario personal utilizando el botón a continuación.
+                    Esto es opcional.
+                </p>
+                <!-- Opción para agregar el evento al calendario -->
+                <a href="evento.ics" class="btn btn-lg agregar-calendario">Agregar al Calendario</a>
+            </div>
+        </section>
+    </main>
+
+    <!-- Línea de separación antes del footer -->
+    <div class="separator-footer"></div>
+
+    <!-- Footer -->
+    <footer class="footer text-center container-fluid py-3">
+        <ul class="list-unstyled mb-2">
+            <li class="d-inline mx-3"><a href="index.html"><strong>Inicio</strong></a></li>
+        </ul>
+        <p>Sitio creado por <strong class="hector-martil">Héctor Martil</strong></p>
+        <div class="logos">
+            <a href="https://wa.me/525549221534?text=Hola%20Héctor,%20tengo%20una%20pregunta%20sobre%20tu%20cumpleaños"
+                class="mx-2" target="_blank">
+                <i class="fab fa-whatsapp fa-2x"></i>
+            </a>
+            <a href="https://github.com/hembi12" class="mx-2" target="_blank">
+                <i class="fab fa-github fa-2x"></i>
+            </a>
+        </div>
+    </footer>
+
+    <!-- Vinculación de JavaScript de Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js">
+    </script>
+    <!-- Vinculación del script de funcionalidad -->
+    <script src="/scripts/rsvp.js" defer></script>
+    <script src="/scripts/index.js"></script>
+    <script src="/scripts/firebase.js"></script>
+</body>
+
+</html>
