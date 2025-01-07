@@ -17,8 +17,10 @@ This project is a web application created to manage RSVPs and event details for 
    ```bash
    git clone https://github.com/hembi12/cumplea-os_30.git
 2. Set up Firebase on your machine and ensure you are logged in:
+   ```bash
 firebase login
 3. Deploy the application with:
+   ```bash
 firebase deploy
 
 ## 🎉 Success Story
