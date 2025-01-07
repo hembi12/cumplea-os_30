@@ -1,8 +1,8 @@
 BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//tudominio.com//Evento 30 Cumpleaños//ES
+PRODID:-//https://rsvp-cumple.web.app///Evento 30 Cumpleaños//ES
 BEGIN:VEVENT
-UID:hectormartil30-20241208@tudominio.com
+UID:https://rsvp-cumple.web.app/
 DTSTAMP:20230919T000000Z
 DTSTART;TZID=America/Mexico_City:20241208T170000
 DTEND;TZID=America/Mexico_City:20241208T230000
